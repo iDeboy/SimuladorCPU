@@ -64,7 +64,7 @@
             this.m_SemaforosOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.m_SemaforosOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.m_SemaforosOption.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.m_SemaforosOption.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.m_SemaforosOption.IconChar = FontAwesome.Sharp.IconChar.TrafficLight;
             this.m_SemaforosOption.IconColor = System.Drawing.Color.WhiteSmoke;
             this.m_SemaforosOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_SemaforosOption.IconSize = 40;
@@ -74,7 +74,7 @@
             this.m_SemaforosOption.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.m_SemaforosOption.Size = new System.Drawing.Size(285, 60);
             this.m_SemaforosOption.TabIndex = 6;
-            this.m_SemaforosOption.Text = "Semaforos";
+            this.m_SemaforosOption.Text = "Semáforos";
             this.m_SemaforosOption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.m_SemaforosOption.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.m_SemaforosOption.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@
             this.m_RoundRobinOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.m_RoundRobinOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.m_RoundRobinOption.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.m_RoundRobinOption.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.m_RoundRobinOption.IconChar = FontAwesome.Sharp.IconChar.Code;
             this.m_RoundRobinOption.IconColor = System.Drawing.Color.WhiteSmoke;
             this.m_RoundRobinOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_RoundRobinOption.IconSize = 40;

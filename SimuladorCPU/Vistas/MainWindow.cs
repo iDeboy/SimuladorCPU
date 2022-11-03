@@ -117,7 +117,7 @@ namespace SimuladorCPU.Vistas {
 
         private void RoundRobinOption_Click(object sender, EventArgs e) {
             ActiveButton(sender);
-            // LLamar OpenChildForm
+            OpenChildForm(new RoundRobinWindow());
         }
 
         private void SemaforosOption_Click(object sender, EventArgs e) {

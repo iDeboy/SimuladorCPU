@@ -20,8 +20,12 @@ namespace SimuladorCPU.Modelos {
         public bool IsBlocked => State is ProcessState.Blocked;
         public bool IsFinished => State is ProcessState.Finished;
 
-        public ProcessModel(uint id, string name, uint time, bool isIoProcess = false, ProcessState state = ProcessState.Ready) {
-            Id = id;
+        public override string ToString() {
+            return "{\n\t" + $"[{Id} - {Name}]: \n\t\tTiempo Total: {Time}\n\t\tTiempo faltante: {TimeLeft}" + "\n}";
+        }
+
+        public ProcessModel(string name, uint time, bool isIoProcess = false, ProcessState state = ProcessState.None) {
+            Id = 0;
             Name = name;
             Time = time;
             IsIOProcess = isIoProcess;
@@ -35,11 +39,11 @@ namespace SimuladorCPU.Modelos {
 
         }
 
-        public ProcessModel(uint id, string name, uint time, bool isIoProcess)
-            : this(id, name, time, isIoProcess, default) { }
+        public ProcessModel(string name, uint time, bool isIoProcess)
+            : this(name, time, isIoProcess, default) { }
 
-        public ProcessModel(uint id, string name, uint time)
-            : this(id, name, time, default, default) { }
+        public ProcessModel(string name, uint time)
+            : this(name, time, default, default) { }
 
 
     }

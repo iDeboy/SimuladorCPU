@@ -431,6 +431,11 @@ namespace SimuladorCPU.Vistas
             label8.Text = txt4.Text;
         }
 
+        private void progressBar8_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             int z1 = int.Parse(txt9.Text) ;

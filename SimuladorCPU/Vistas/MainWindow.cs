@@ -122,11 +122,23 @@ namespace SimuladorCPU.Vistas {
 
         private void SemaforosOption_Click(object sender, EventArgs e) {
             ActiveButton(sender);
-            // LLamar OpenChildForm
+
+            OpenChildForm(new SemaforoWindow());
+            // LLamar Semaforos
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e) {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void m_Dashboard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void m_ControlBar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

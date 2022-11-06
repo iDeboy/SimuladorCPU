@@ -15,12 +15,13 @@ namespace SimuladorCPU.Modelos {
         // Sync Methods
         public void Insert(ProcessModel? process);
         public void Remove();
+        public void Remove(ProcessModel? process);
         public ProcessModel? Peek();
+        public ProcessModel? PeekRandom();
         public void Clear();
         public string ToString();
 
         // Async Methods
-        public Task InsertAsync(ProcessModel? process);
 
     }
 }

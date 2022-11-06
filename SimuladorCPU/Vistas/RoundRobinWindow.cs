@@ -7,20 +7,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace SimuladorCPU.Vistas {
     public partial class RoundRobinWindow : Form {
 
-        private BlockProcessModel m_BlockProcess;
-
+        private readonly List<ProcessModel> m_ProcessList;
         public RoundRobinWindow() {
             InitializeComponent();
             m_DataGridProcess.AutoGenerateColumns = false;
 
-            m_BlockProcess = new BlockProcessModel();
+            m_ProcessList = new();
         }
 
         private bool ValidateProcessName(string name) {
@@ -32,7 +28,7 @@ namespace SimuladorCPU.Vistas {
                 return false;
             }
 
-            if (m_BlockProcess.Any(p => p.Name == name)) {
+            if (m_ProcessList.Any(p => p.Name == name)) {
                 m_ErrorLabel.Text = "* Ya existe ese proceso.";
                 return false;
             }
@@ -84,7 +80,7 @@ namespace SimuladorCPU.Vistas {
         }
         private bool ValidateProcessList() {
 
-            if (!m_BlockProcess.Any()) {
+            if (!m_ProcessList.Any()) {
                 m_QuantumErrorLabel.Text = "* No hay procesos.";
                 return false;
             }
@@ -105,7 +101,7 @@ namespace SimuladorCPU.Vistas {
             ClearErrorLabels();
             m_DataGridProcess.DataSource = null;
             m_TextBoxQuantum.Clear();
-            m_BlockProcess.Clear();
+            m_ProcessList.Clear();
         }
         private void AddProcessButton_Click(object sender, EventArgs e) {
 
@@ -121,10 +117,10 @@ namespace SimuladorCPU.Vistas {
 
             var IOProcess = m_CheckBoxInputOutputProcess.Checked;
 
-            m_BlockProcess.AddProcess(new ProcessModel(name, time, IOProcess));
+            m_ProcessList.Add(new ProcessModel(name, time, IOProcess));
 
             m_DataGridProcess.DataSource = null;
-            m_DataGridProcess.DataSource = m_BlockProcess.ToList();
+            m_DataGridProcess.DataSource = m_ProcessList;
 
             ClearProcessInformation();
         }
@@ -158,13 +154,17 @@ namespace SimuladorCPU.Vistas {
             ClearErrorLabels();
 
             // Iniciar el simulador
-            m_BlockProcess.Quantum = quantum;
+            var block = new BlockProcessModel(quantum, m_ProcessList);
 
-            m_BlockProcess.Run();
+            var scheduler = new RoundRobinSchedulerWindow(block);
+
+            scheduler.ShowDialog(this);
         }
 
         private void CleanButton_Click(object sender, EventArgs e) {
             ClearAll();
         }
+
+
     }
 }

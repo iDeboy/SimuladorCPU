@@ -14,14 +14,6 @@ using System.Windows.Forms;
 namespace SimuladorCPU.Vistas {
     public partial class MainWindow : Form {
 
-        #region DLLImports
-        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(IntPtr hWnd, uint Msg, nuint wParam, nint lParam);
-        #endregion
-
         // Properties
         private IconButton? CurrentButton { get; set; }
         private Form? CurrentForm { get; set; }
@@ -107,8 +99,8 @@ namespace SimuladorCPU.Vistas {
         }
 
         private void ControlBar_MouseDown(object sender, MouseEventArgs e) {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xF012, 0);
+            WinApi.ReleaseCapture();
+            WinApi.SendMessage(Handle, 0x112, 0xF012, 0);
         }
 
         private void CloseButton_Click(object sender, EventArgs e) {
@@ -117,12 +109,14 @@ namespace SimuladorCPU.Vistas {
 
         private void RoundRobinOption_Click(object sender, EventArgs e) {
             ActiveButton(sender);
-            // LLamar OpenChildForm
+            OpenChildForm(new RoundRobinWindow());
         }
 
         private void SemaforosOption_Click(object sender, EventArgs e) {
             ActiveButton(sender);
-            // LLamar OpenChildForm
+
+            // LLamar Semaforos
+            OpenChildForm(new SemaforoWindow());
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e) {

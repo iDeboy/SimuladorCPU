@@ -53,7 +53,7 @@
             this.m_Dashboard.Dock = System.Windows.Forms.DockStyle.Left;
             this.m_Dashboard.Location = new System.Drawing.Point(0, 0);
             this.m_Dashboard.Name = "m_Dashboard";
-            this.m_Dashboard.Size = new System.Drawing.Size(285, 700);
+            this.m_Dashboard.Size = new System.Drawing.Size(285, 800);
             this.m_Dashboard.TabIndex = 0;
             // 
             // m_SemaforosOption
@@ -69,7 +69,7 @@
             this.m_SemaforosOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_SemaforosOption.IconSize = 40;
             this.m_SemaforosOption.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_SemaforosOption.Location = new System.Drawing.Point(0, 202);
+            this.m_SemaforosOption.Location = new System.Drawing.Point(0, 203);
             this.m_SemaforosOption.Name = "m_SemaforosOption";
             this.m_SemaforosOption.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.m_SemaforosOption.Size = new System.Drawing.Size(285, 60);
@@ -93,7 +93,7 @@
             this.m_RoundRobinOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_RoundRobinOption.IconSize = 40;
             this.m_RoundRobinOption.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_RoundRobinOption.Location = new System.Drawing.Point(0, 142);
+            this.m_RoundRobinOption.Location = new System.Drawing.Point(0, 143);
             this.m_RoundRobinOption.Name = "m_RoundRobinOption";
             this.m_RoundRobinOption.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.m_RoundRobinOption.Size = new System.Drawing.Size(285, 60);
@@ -113,7 +113,7 @@
             this.m_Icon.IconColor = System.Drawing.Color.DarkSlateGray;
             this.m_Icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_Icon.IconSize = 108;
-            this.m_Icon.Location = new System.Drawing.Point(0, 34);
+            this.m_Icon.Location = new System.Drawing.Point(0, 35);
             this.m_Icon.Name = "m_Icon";
             this.m_Icon.Size = new System.Drawing.Size(285, 108);
             this.m_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -128,7 +128,7 @@
             this.m_Title.Location = new System.Drawing.Point(0, 0);
             this.m_Title.Name = "m_Title";
             this.m_Title.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.m_Title.Size = new System.Drawing.Size(285, 34);
+            this.m_Title.Size = new System.Drawing.Size(285, 35);
             this.m_Title.TabIndex = 1;
             this.m_Title.Text = "Simulador";
             this.m_Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -141,7 +141,7 @@
             this.m_ControlBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.m_ControlBar.Location = new System.Drawing.Point(285, 0);
             this.m_ControlBar.Name = "m_ControlBar";
-            this.m_ControlBar.Size = new System.Drawing.Size(1015, 40);
+            this.m_ControlBar.Size = new System.Drawing.Size(1200, 55);
             this.m_ControlBar.TabIndex = 3;
             this.m_ControlBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlBar_MouseDown);
             // 
@@ -157,10 +157,10 @@
             this.m_MinimizeButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(118)))), ((int)(((byte)(189)))));
             this.m_MinimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_MinimizeButton.IconSize = 25;
-            this.m_MinimizeButton.Location = new System.Drawing.Point(909, 0);
+            this.m_MinimizeButton.Location = new System.Drawing.Point(1094, 0);
             this.m_MinimizeButton.Name = "m_MinimizeButton";
             this.m_MinimizeButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.m_MinimizeButton.Size = new System.Drawing.Size(53, 40);
+            this.m_MinimizeButton.Size = new System.Drawing.Size(53, 55);
             this.m_MinimizeButton.TabIndex = 5;
             this.m_MinimizeButton.TabStop = false;
             this.m_MinimizeButton.UseVisualStyleBackColor = false;
@@ -178,10 +178,10 @@
             this.m_CloseButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(118)))), ((int)(((byte)(189)))));
             this.m_CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.m_CloseButton.IconSize = 25;
-            this.m_CloseButton.Location = new System.Drawing.Point(962, 0);
+            this.m_CloseButton.Location = new System.Drawing.Point(1147, 0);
             this.m_CloseButton.Name = "m_CloseButton";
             this.m_CloseButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.m_CloseButton.Size = new System.Drawing.Size(53, 40);
+            this.m_CloseButton.Size = new System.Drawing.Size(53, 55);
             this.m_CloseButton.TabIndex = 4;
             this.m_CloseButton.TabStop = false;
             this.m_CloseButton.UseVisualStyleBackColor = false;
@@ -193,9 +193,9 @@
             this.m_CaptionPanel.Controls.Add(this.m_CaptionIcon);
             this.m_CaptionPanel.Controls.Add(this.m_PanelAux);
             this.m_CaptionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_CaptionPanel.Location = new System.Drawing.Point(285, 40);
+            this.m_CaptionPanel.Location = new System.Drawing.Point(285, 55);
             this.m_CaptionPanel.Name = "m_CaptionPanel";
-            this.m_CaptionPanel.Size = new System.Drawing.Size(1015, 45);
+            this.m_CaptionPanel.Size = new System.Drawing.Size(1200, 45);
             this.m_CaptionPanel.TabIndex = 4;
             // 
             // m_CaptionText
@@ -207,7 +207,7 @@
             this.m_CaptionText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.m_CaptionText.Location = new System.Drawing.Point(87, 0);
             this.m_CaptionText.Name = "m_CaptionText";
-            this.m_CaptionText.Size = new System.Drawing.Size(928, 45);
+            this.m_CaptionText.Size = new System.Drawing.Size(1113, 45);
             this.m_CaptionText.TabIndex = 5;
             this.m_CaptionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -237,16 +237,16 @@
             // m_PanelForm
             // 
             this.m_PanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_PanelForm.Location = new System.Drawing.Point(285, 85);
+            this.m_PanelForm.Location = new System.Drawing.Point(285, 100);
             this.m_PanelForm.Name = "m_PanelForm";
-            this.m_PanelForm.Size = new System.Drawing.Size(1015, 615);
+            this.m_PanelForm.Size = new System.Drawing.Size(1200, 700);
             this.m_PanelForm.TabIndex = 5;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 700);
+            this.ClientSize = new System.Drawing.Size(1485, 800);
             this.Controls.Add(this.m_PanelForm);
             this.Controls.Add(this.m_CaptionPanel);
             this.Controls.Add(this.m_ControlBar);

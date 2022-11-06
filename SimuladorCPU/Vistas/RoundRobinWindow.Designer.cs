@@ -90,7 +90,7 @@
             this.m_GroupProcess.Controls.Add(this.m_FlowLayoutName);
             this.m_GroupProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.m_GroupProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.m_GroupProcess.Location = new System.Drawing.Point(10, 10);
+            this.m_GroupProcess.Location = new System.Drawing.Point(110, 54);
             this.m_GroupProcess.Name = "m_GroupProcess";
             this.m_GroupProcess.Size = new System.Drawing.Size(476, 250);
             this.m_GroupProcess.TabIndex = 2;
@@ -226,7 +226,7 @@
             // 
             this.m_GroupProcessList.Controls.Add(this.m_DataGridProcess);
             this.m_GroupProcessList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.m_GroupProcessList.Location = new System.Drawing.Point(507, 131);
+            this.m_GroupProcessList.Location = new System.Drawing.Point(607, 175);
             this.m_GroupProcessList.Name = "m_GroupProcessList";
             this.m_GroupProcessList.Size = new System.Drawing.Size(496, 472);
             this.m_GroupProcessList.TabIndex = 4;
@@ -333,7 +333,7 @@
             this.m_PanelControlButtons.Controls.Add(this.m_CleanButton);
             this.m_PanelControlButtons.Controls.Add(this.m_StartButton);
             this.m_PanelControlButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.m_PanelControlButtons.Location = new System.Drawing.Point(13, 289);
+            this.m_PanelControlButtons.Location = new System.Drawing.Point(113, 333);
             this.m_PanelControlButtons.Name = "m_PanelControlButtons";
             this.m_PanelControlButtons.Size = new System.Drawing.Size(473, 314);
             this.m_PanelControlButtons.TabIndex = 6;
@@ -373,7 +373,7 @@
             // 
             this.panel1.Controls.Add(this.m_FlowLayoutQuantum);
             this.panel1.Controls.Add(this.m_QuantumErrorLabel);
-            this.panel1.Location = new System.Drawing.Point(513, 8);
+            this.panel1.Location = new System.Drawing.Point(613, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(490, 117);
             this.panel1.TabIndex = 8;
@@ -382,7 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 615);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.m_PanelControlButtons);
             this.Controls.Add(this.m_GroupProcessList);

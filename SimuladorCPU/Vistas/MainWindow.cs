@@ -116,7 +116,7 @@ namespace SimuladorCPU.Vistas {
             ActiveButton(sender);
 
             // LLamar Semaforos
-            OpenChildForm(new SemaforoWindow());
+            OpenChildForm(new SemaforosWindow());
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e) {

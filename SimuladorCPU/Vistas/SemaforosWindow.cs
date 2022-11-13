@@ -24,9 +24,9 @@ namespace SimuladorCPU.Vistas
             i = 0;
             j = 0;
             //label5.Text = "" + Convert.ToString(totalDatos);
-            
+
             //inicializarDataGridView();
-            
+
             llegada.KeyPress += new KeyPressEventHandler(validarTeclaPulsada);
             salida.KeyPress += new KeyPressEventHandler(validarTeclaPulsada);
         }
@@ -68,6 +68,7 @@ namespace SimuladorCPU.Vistas
         }
         private void agregar_Click(object sender, EventArgs e)
         {
+
             if (proceso.Text != "" && llegada.Text != "" && salida.Text != "")
             {
                 if (int.Parse(llegada.Text) >= totalDatos)
@@ -98,6 +99,18 @@ namespace SimuladorCPU.Vistas
                                 valoresOrdenados[0, d] = proceso.Text;
                                 valoresOrdenados[1, d] = llegada.Text;
                                 valoresOrdenados[2, d] = salida.Text;
+
+                                var randomNumber = new Random().Next(0, 100);
+                                if (int.Parse(valores[2, j]) >= 10)
+                                {
+                                    var randomNumber2 = new Random().Next(2, 10);
+                                    valoresOrdenados[3, d] = randomNumber2.ToString();
+                                }
+                                else
+                                {
+                                    valoresOrdenados[3, d] = "0";
+                                }
+
                                 actualizarTablas();
                                 limpiaTexto();
                                 j++;
@@ -132,7 +145,7 @@ namespace SimuladorCPU.Vistas
             ordenadDatos();
 
             //tablaOrdenada();
-            tiempos();
+            tiempos2();
             mostrarTiempos();
         }
 
@@ -291,13 +304,29 @@ namespace SimuladorCPU.Vistas
             button2.Enabled = false;
             label5.Text = "" + Convert.ToString(totalDatos);
             totalDatos++;
-            valores = new String[3, totalDatos];
-            valoresSeguidos = new String[3, totalDatos];
-            valoresOrdenados = new String[3, totalDatos];
+            valores = new String[4, totalDatos];
+            valoresSeguidos = new String[4, totalDatos];
+            valoresOrdenados = new String[4, totalDatos];
             resultados = new double[11, totalDatos];
-            
-            
+
+
             activarCeldas();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            limiteDatos = 5;
+            valoresSeguidos[0, 0] = "Word"; valoresSeguidos[0, 2] = "Excel"; valoresSeguidos[0, 4] = "Paint";
+            valoresSeguidos[0, 3] = "Net"; valoresSeguidos[0, 1] = "Eclipse";
+
+            valoresSeguidos[1, 0] = "0"; valoresSeguidos[1, 2] = "2"; valoresSeguidos[1, 4] = "4";
+            valoresSeguidos[1, 3] = "3"; valoresSeguidos[1, 1] = "1";
+
+            valoresSeguidos[2, 0] = "10"; valoresSeguidos[2, 2] = "12"; valoresSeguidos[2, 4] = "5";
+            valoresSeguidos[2, 3] = "6"; valoresSeguidos[2, 1] = "24";
+
+            valoresSeguidos[3, 0] = "0"; valoresSeguidos[3, 2] = "0"; valoresSeguidos[3, 4] = "0";
+            valoresSeguidos[3, 1] = "0"; valoresSeguidos[3, 3] = "0";
         }
 
         //solo sirve para mostrar los datos ordenados con forme al tiempo de llegada
@@ -324,7 +353,7 @@ namespace SimuladorCPU.Vistas
                 resultados[0, i] = double.Parse(valoresSeguidos[2, i]);
             }
             //tf0
-            resultados[1, 0] = double.Parse(valoresSeguidos[1, 0]) + resultados[0, 0];
+            resultados[1, 0] = resultados[0, 0];
             //tf
             for (i = 1; i < limiteDatos; i++)
             {
@@ -332,18 +361,21 @@ namespace SimuladorCPU.Vistas
                 resultados[1, i] = resultados[0, i] + resultados[1, i - 1];
             }
 
+
             //tr
-            for (i = 0; i < limiteDatos; i++)
+            //resultados[2, 0] = resultados[1, 0] - double.Parse(valoresSeguidos[2, 0]);
+            for (i = 1; i < limiteDatos; i++)
             {
 
-                resultados[2, i] = resultados[1, i] - double.Parse(valoresSeguidos[1, i]);
+                resultados[2, i] = double.Parse(valoresSeguidos[2, i]) + resultados[1, i - 1];
             }
 
             //te
-            for (i = 0; i < limiteDatos; i++)
+            resultados[3, 0] = resultados[1, 0] - resultados[0, 0];
+            for (i = 1; i < limiteDatos; i++)
             {
 
-                resultados[3, i] = resultados[2, i] - resultados[0, i];
+                resultados[3, i] = resultados[1, i - 1] - double.Parse(valoresSeguidos[1, i]);
             }
 
             //Nr
@@ -379,15 +411,25 @@ namespace SimuladorCPU.Vistas
         {
             for (i = 0; i < limiteDatos; i++)
             {
-                await Task.Delay(int.Parse(valoresSeguidos[1, i]) * 1000);
+                await Task.Delay(int.Parse(valoresSeguidos[1, i]) * 100);
                 dgvDatos.Rows.Add(string.Empty);
+                dgvDatos[1, i].Value = resultados[0, i];
                 dgvDatos[2, i].Value = resultados[1, i];
-                dgvDatos[5, i].Value = resultados[2, i];
+                dgvDatos[3, i].Value = resultados[2, i];
                 dgvDatos[4, i].Value = resultados[3, i];
-                dgvDatos[6, i].Value = resultados[4, i];
+                dgvDatos[5, i].Value = resultados[4, i];
+                dgvDatos[6, i].Value = resultados[5, i];
+                if (valoresSeguidos[3, i] == "0")
+                {
+                    dgvDatos[7, i].Value = "N";
+                }
+                else
+                {
+                    dgvDatos[7, i].Value = valoresSeguidos[3, i];
+                }
+
                 dgvDatos[0, i].Value = valoresSeguidos[0, i];
-                dgvDatos[3, i].Value = valoresSeguidos[2, i];
-                dgvDatos[1, i].Value = valoresSeguidos[1, i];
+
 
             }
         }
@@ -397,25 +439,63 @@ namespace SimuladorCPU.Vistas
             c = 0;
             for (i = 0; i < totalDatos; i++)
             {
-                if (valoresOrdenados[1, i] != "" && valoresOrdenados[1, i] != null)
+                if (string.IsNullOrWhiteSpace(valoresOrdenados[1, c]))
                 {
-                    valoresSeguidos[0, c] = valoresOrdenados[0, i];
-                    valoresSeguidos[1, c] = valoresOrdenados[1, i];
-                    valoresSeguidos[2, c] = valoresOrdenados[2, i];
-                    c++;
+                    continue;
                 }
+
+                valoresSeguidos[0, c] = valoresOrdenados[0, i];
+                valoresSeguidos[1, c] = valoresOrdenados[1, i];
+                valoresSeguidos[2, c] = valoresOrdenados[2, i];
+                valoresSeguidos[3, c] = valoresOrdenados[3, i];
+                //valoresSeguidos[3, c] = "0";
+                //MessageBox.Show(valoresSeguidos[1, i]);
+                c++;
 
             }
 
-            //valoresOrdenados[0, a - c] = valoresOrdenados[0, a];
-            //valoresOrdenados[1, a - c] = valoresOrdenados[1, a];
-            //valoresOrdenados[2, a - c] = valoresOrdenados[2, a];
 
-            //valoresOrdenados[0, a] = null;
-            //valoresOrdenados[1, a] = null;
-            //valoresOrdenados[2, a] = null;
+        }
+        private void tiempos2()
+        {
 
+            //Tiempo llegada tl [0,i]
+            //Tiempo salida Ts [2,i]
+            for (i = 0; i < totalDatos - 1; i++)
+            {
+                //MessageBox.Show(valoresSeguidos[1,i]);
+                resultados[0, i] = double.Parse(valoresSeguidos[1, i]);
+                //MessageBox.Show(valoresSeguidos[3,i]);
+                resultados[2, i] = double.Parse(valoresSeguidos[2, i]) + double.Parse(valoresSeguidos[3, i]);
 
+            }
+
+            //Tiempo final tf [1,i]
+
+            resultados[1, 0] = resultados[2, 0];
+            for (i = 1; i < totalDatos - 1; i++)
+            {
+                resultados[1, i] = resultados[2, i] + resultados[1, i - 1];
+            }
+            //Tiempo de respuesta Tr [4,i]
+            resultados[4, 0] = resultados[2, 0];
+            for (i = 1; i < totalDatos - 1; i++)
+            {
+                resultados[4, i] = resultados[2, i] + resultados[4, i - 1];
+            }
+
+            //Tiempo de espera Te [3,i]
+            resultados[3, i] = 0;
+            for (i = 1; i < totalDatos - 1; i++)
+            {
+                resultados[3, i] = resultados[4, i - 1] - resultados[0, i];
+            }
+
+            //tiempo de respuesta promedio tr / ts
+            for (i = 1; i < totalDatos - 1; i++)
+            {
+                resultados[5, i] = resultados[4, i] / resultados[2, i];
+            }
         }
     }
 }
